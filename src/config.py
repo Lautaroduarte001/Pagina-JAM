@@ -5,7 +5,7 @@ class DevelopmentConfig(Config):
     DEBUG=True
     MYSQL_HOST = 'localhost'
     MYSQL_USER = 'root'
-    MYSQL_PASSWORD = '7778742049'
+    MYSQL_PASSWORD = '123456789'
     MYSQL_DB = 'jam'
     
 config = {

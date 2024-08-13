@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/tabla.css') }}">
+    <title>Tabla de inscripciones</title>
+</head>
+<body>
+    <div id="background">
+        <video class="fondo-video" autoplay loop muted>
+            <source src="{{ url_for('static', filename='images/drip.mp4') }}" type="video/mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+          </video>
+        <h1>Lista de Inscripciones de la JAM</h1>
+        <section class="flex-container">
+            <div class="cancion">
+                <div class="caja1">
+                    Toxicity
+                </div>
+                <div class="caja2">
+                    <p>Voz: {{cancion1_voz}}</p>
+                    <p>Guitarra: {{cancion1_guitarra}}</p>
+                    <p>Bajo: {{cancion1_bajo}}</p>
+                    <p>Bateria: {{cancion1_bateria}}</p>
+                </div>
+            </div>
+            <div class="cancion">
+                <div class="caja1">
+                    American Idiot
+                </div>
+                <div class="caja2">
+                    <p>Voz: {{cancion2_voz}}</p>
+                    <p>Guitarra: {{cancion2_guitarra}}</p>
+                    <p>Bajo: {{cancion2_bajo}}</p>
+                    <p>Bateria: {{cancion2_bateria}}</p>
+                </div>
+            </div>
+            <div class="cancion">
+                <div class="caja1">
+                    Numb
+                </div>
+                <div class="caja2">
+                    <p>Voz: {{cancion3_voz}}</p>
+                    <p>Guitarra: {{cancion3_guitarra}}</p>
+                    <p>Bajo: {{cancion3_bajo}}</p>
+                    <p>Bateria: {{cancion3_bateria}}</p>
+                    <p>Teclado: {{cancion3_teclado}}</p>
+                </div>
+            </div>
+            <div class="cancion">
+                <div class="caja1">
+                    Can't Stop
+                </div>
+                <div class="caja2">
+                    <p>Voz: {{cancion4_voz}}</p>
+                    <p>Guitarra: {{cancion4_guitarra}}</p>
+                    <p>Bajo: {{cancion4_bajo}}</p>
+                    <p>Bateria: {{cancion4_bateria}}</p>
+                </div>
+            </div>
+            <div class="cancion">
+                <div class="caja1">
+                    Don
+                </div>
+                <div class="caja2">
+                    <p>Voz: {{cancion5_voz}}</p>
+                    <p>Guitarra: {{cancion5_guitarra}}</p>
+                    <p>2da Voz: {{cancion5_2da_voz}}</p>
+                    <p>2da Guitarra: {{cancion5_2da_guitarra}}</p>
+                    <p>Bajo: {{cancion5_bajo}}</p>
+                    <p>Bateria: {{cancion5_bateria}}</p>
+                    <p>Teclado: {{cancion5_teclado}}</p>
+                </div>
+            </div>
+            <div class="cancion">
+                <div class="caja1">
+                    Chop Suey
+                </div>
+                <div class="caja2">
+                    <p>Voz: {{cancion6_voz}}</p>
+                    <p>Guitarra: {{cancion6_guitarra}}</p>
+                    <p>Bajo: {{cancion6_bajo}}</p>
+                    <p>Bateria: {{cancion6_bateria}}</p>
+                    <p>Coros: {{cancion6_coros}}</p>
+                </div>
+            </div>
+            <div class="cancion">
+                <div class="caja1">
+                    Feel Good Inc
+                </div>
+                <div class="caja2">
+                    <p>Voz: {{cancion7_voz}}</p>
+                    <p>Guitarra: {{cancion7_guitarra}}</p>
+                    <p>Bajo: {{cancion7_bajo}}</p>
+                    <p>Bateria: {{cancion7_bateria}}</p>
+                </div>
+            </div>
+            <div class="cancion">
+                <div class="caja1">
+                    Bring Me To Life
+                </div>
+                <div class="caja2">
+                    <p>Voz: {{cancion8_voz}}</p>
+                    <p>2da Voz: {{cancion8_2da_voz}}</p>
+                    <p>Guitarra: {{cancion8_guitarra}}</p>
+                    <p>2da Guitarra: {{cancion8_2da_guitarra}}</p>
+                    <p>Bajo: {{cancion8_bajo}}</p>
+                    <p>Bateria: {{cancion8_bateria}}</p>
+                </div>
+            </div>
+            <div class="cancion">
+                <div class="caja1">
+                    La partida de La Gitana
+                </div>
+                <div class="caja2">
+                    <p>Voz: {{cancion9_voz}}</p>
+                    <p>2da Voz: Marco</p>
+                    <p>Guitarra: {{cancion9_guitarra}}</p>
+                    <p>Bajo: {{cancion9_bajo}}</p>
+                    <p>Bateria: {{cancion9_bateria}}</p>
+                    <p>Coros: {{cancion9_coros}}</p>
+                </div>
+            </div>
+            <div class="cancion">
+                <div class="caja1">
+                    Irresponsables
+                </div>
+                <div class="caja2">
+                    <p>Voz: {{cancion10_voz}}</p>
+                    <p>Guitarra: {{cancion10_guitarra}}</p>
+                    <p>Guitarra Acustica: {{cancion10_guitarra_acustica}}</p>
+                    <p>Bajo: {{cancion10_bajo}}</p>
+                    <p>Bateria: {{cancion10_bateria}}</p>
+                    <p>Teclado: {{cancion10_teclado}}</p>
+                </div>
+            </div>
+            <div class="cancion">
+                <div class="caja1">
+                    Reptilia
+                </div>
+                <div class="caja2">
+                    <p>Voz: {{cancion11_voz}}</p>
+                    <p>Guitarra: {{cancion11_guitarra}}</p>
+                    <p>2da Guitarra: {{cancion11_2da_guitarra}}</p>
+                    <p>Bajo: {{cancion11_bajo}}</p>
+                    <p>Bateria: {{cancion11_bateria}}</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

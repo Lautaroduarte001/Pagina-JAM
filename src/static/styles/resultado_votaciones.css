@@ -1,0 +1,22 @@
+.chart-container {
+    width: 100%;
+    height: 0; /* Inicialmente, establece la altura en 0 */
+    padding-bottom: 50%; /* Ajusta este valor según el aspect ratio deseado (por ejemplo, 75% para 4:3) */
+    position: relative;
+    max-width: 1000px;
+}
+
+/* Añade un elemento interno para el contenido real */
+.chart-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Estilos adicionales para el contenido */
+}
+
+#votaciones{
+    background-color: var(--color-menu-hover);
+    color: var(--color-menu-hover-texto);
+}

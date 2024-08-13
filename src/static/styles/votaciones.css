@@ -1,0 +1,135 @@
+/*------------------> Main*/
+#votaciones{
+    background-color: var(--color-menu-hover);
+    color: var(--color-menu-hover-texto);
+}
+
+
+button{
+    width: 250px;
+    height: 45px;
+    border-radius: 40px;
+    background: #fff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    outline: none;
+    margin: 5px;
+    color:black;
+    margin-top: 30px;
+    margin-left: 10px;
+    padding: 10px 20px;
+    transition: transform 0.3s ease;
+    cursor: pointer
+}
+
+button:hover {
+    transform: scale(1.1); 
+}
+
+.votaciones-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo-votaciones{
+    margin: 10px;
+}
+
+.titulo-votaciones h1{
+    margin-bottom: 10px;
+}
+.titulo-votaciones h3{
+    color: #fff;
+}
+
+
+.cancion-container{
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    width: 80%;
+    max-width: 800px;
+    background-color: #fff;
+    color:black ;
+    border-radius: 15px;
+    margin: 10px;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.cancion h3{
+    margin-left: 15px;
+    font-size: 20px;
+    color:black ;
+
+}
+
+
+
+.checkbox-wrapper-22 .switch {
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    width: 35px;
+}
+
+.checkbox-wrapper-22 .switch input {
+    display:none;
+}
+
+.checkbox-wrapper-22 .slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.checkbox-wrapper-22 .slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 13px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 13px;
+}
+
+.checkbox-wrapper-22 input:checked + .slider {
+    background-color: #66bb6a;
+}
+
+.checkbox-wrapper-22 input:checked + .slider:before {
+    transform: translateX(13px);
+}
+
+.checkbox-wrapper-22 .slider.round {
+    border-radius: 17px;
+}
+
+.checkbox-wrapper-22 .slider.round:before {
+    border-radius: 50%;
+}
+
+
+
+/*------------------> Responsive*/
+@media (max-width: 900px){
+    .cancion h3{
+        font-size: 17px;
+    }
+    
+}
+
+@media (max-width: 600px){
+    .cancion h3{
+        font-size: 17px;
+    }
+    
+}

@@ -1,0 +1,156 @@
+
+{% extends './base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
+
+{% block body %}
+<div class="menu">
+    <ion-icon name="menu-outline"></ion-icon>
+    <ion-icon name="close-outline"></ion-icon>
+</div>
+
+<div class="barra-lateral">
+    <div>
+        <div class="nombre-pagina">
+            <ion-icon id="cloud" name="person-circle-outline"></ion-icon>
+            <span>{{ current_user.fullname }}</span>
+        </div>
+        <div>
+            <h3 class="username">@{{ current_user.username }}</h3><br>
+        </div>
+    </div>
+
+    <nav class="navegacion">
+        <ul>
+            <li>
+                <a id="home" href="#">
+                    <ion-icon name="home-outline"></ion-icon>
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('wallet') }}">
+                    <ion-icon name="wallet-outline"></ion-icon>
+                    <span>Billetera</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('votaciones') }}">
+                    <ion-icon name="musical-notes-outline"></ion-icon>
+                    <span>Votaciones</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('enrollments') }}">
+                    <ion-icon name="document-text-outline"></ion-icon>
+                    <span>Inscripciones</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('mis_datos') }}">
+                    <ion-icon name="settings-outline"></ion-icon>
+                    <span>Mis datos</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <ion-icon name="server-outline"></ion-icon>
+                    <span>Historial de Jams</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('logout') }}">
+                    <ion-icon name="log-out-outline"></ion-icon>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div>
+        <div class="linea"></div>
+
+        <div class="modo-oscuro">
+            <a class="info" href="#">
+                <ion-icon name="paper-plane-outline"></ion-icon>
+                <span>Contacto</span>
+            </a>
+        </div>
+
+        <div class="usuario">
+            <img src="{{ url_for('static', filename='images/drepa_jam_logo_guitarra.png') }}" alt="">
+            <div class="info-usuario">
+                <div class="nombre-email">
+                    <img src="{{ url_for('static', filename='images/drepa_jam_logo_letras.png') }}" alt="">
+                </div>
+                <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<main>
+    <div id="background">
+        <video class="fondo-video" autoplay loop muted>
+            <source src="{{ url_for('static', filename='images/drip.mp4') }}" type="video/mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+        <div class="indicacion_menu"><img src="{{ url_for('static', filename='images/menu_desplegable.png') }}" alt="" id="indicacion_menu_foto"></a></div>
+        <div class="slider-wrapper">
+            <div class="slider">
+                <img id="slide-1" src="{{ url_for('static', filename='images/slider1.jpg') }}" />
+                <img id="slide-2" src="{{ url_for('static', filename='images/slider2.jpg') }}" />
+                <img id="slide-3" src="https://images.unsplash.com/photo-1656077217715-bdaeb06bd01f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="3D rendering of an imaginary blue planet in space" />
+            </div>
+            <div class="slider-nav">
+                <a href="#slide-1"></a>
+                <a href="#slide-2"></a>
+                <a href="#slide-3"></a>
+            </div>
+        </div>
+        <h1>Bienvenidx a la página oficial de la Drepa JAM</h1>
+        <h3>Sabías que ahora podes acumular puntos y canjearlos por bebidas, comida o accesorios para instrumentos en tu próxima jam?</h3>
+        <div class="formulario">
+            <form method="get" action="{{ url_for('wallet') }}">
+                <button type="submit">Quiero saber mas</button>
+            </form>
+        </div>
+        <h2>Proxima JAM en:</h2>
+        <div class="launch-time">
+            <div>
+                <p id="days">00</p>
+                <span>Dias</span>
+            </div>
+            <div>
+                <p id="hours">00</p>
+                <span>Horas</span>
+            </div>
+            <div>
+                <p id="minutes">00</p>
+                <span>Minutos</span>
+            </div>
+            <div>
+                <p id="seconds">00</p>
+                <span>Segundos</span>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="{{ url_for('static', filename='codejs/code.js') }}"></script>
+<script src="{{ url_for('static', filename='codejs/home.js') }}"></script>
+{% endblock %}

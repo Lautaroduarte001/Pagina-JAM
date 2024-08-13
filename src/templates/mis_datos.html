@@ -1,0 +1,153 @@
+{% extends './base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/mis_datos.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
+
+{% block body %}
+<div class="menu">
+    <ion-icon name="menu-outline"></ion-icon>
+    <ion-icon name="close-outline"></ion-icon>
+</div>
+
+<div class="barra-lateral">
+    <div>
+        <div class="nombre-pagina">
+            <ion-icon id="cloud" name="person-circle-outline"></ion-icon>
+            <span>{{ current_user.fullname }}</span>
+        </div>
+        <div>
+            <h3 class="username">@{{ current_user.username }}</h3><br>
+        </div>
+    </div>
+
+    <nav class="navegacion">
+        <ul>
+            <li>
+                <a id="home" href="{{ url_for('home') }}">
+                    <ion-icon name="home-outline"></ion-icon>
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('wallet') }}">
+                    <ion-icon name="wallet-outline"></ion-icon>
+                    <span>Billetera</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('votaciones') }}">
+                    <ion-icon name="musical-notes-outline"></ion-icon>
+                    <span>Votaciones</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('enrollments') }}">
+                    <ion-icon name="document-text-outline"></ion-icon>
+                    <span>Inscripciones</span>
+                </a>
+            </li>
+            <li>
+                <a id="mis_datos" href="#">
+                    <ion-icon name="settings-outline"></ion-icon>
+                    <span>Mis datos</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <ion-icon name="server-outline"></ion-icon>
+                    <span>Historial de Jams</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('logout') }}">
+                    <ion-icon name="log-out-outline"></ion-icon>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div>
+        <div class="linea"></div>
+
+        <div class="modo-oscuro">
+            <a class="info" href="#">
+                <ion-icon name="paper-plane-outline"></ion-icon>
+                <span>Contacto</span>
+            </a>
+        </div>
+
+        <div class="usuario">
+            <img src="{{ url_for('static', filename='images/drepa_jam_logo_guitarra.png') }}" alt="">
+            <div class="info-usuario">
+                <div class="nombre-email">
+                    <img src="{{ url_for('static', filename='images/drepa_jam_logo_letras.png') }}" alt="">
+                </div>
+                <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<main>
+    <div id="background">
+        <video class="fondo-video" autoplay loop muted>
+            <source src="{{ url_for('static', filename='images/drip.mp4') }}" type="video/mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+        <div class="form-container">
+            <form action="" >
+                <div class="title-content">
+                    <h1>Mis datos</h1>
+                </div>
+                <h3>Nombre de Usuario</h3>
+                <div class="input-contenedor">
+                    <img src="{{ url_for('static', filename='images/arroba.png') }}" class="arroba">
+                    <input type="text" id="mis_datos_input" value="{{ current_user.username }}">
+                </div>
+                <h3>Nombre Real</h3>
+                <div class="input-contenedor">
+                    <input type="text" id="mis_datos_input" value="{{ current_user.fullname }}">
+                </div>
+                <h3>Telefono Celular</h3>
+                <div class="input-contenedor">
+                    <input type="text" id="mis_datos_input" value="{{ current_user.mobile_number }}">
+                </div>
+                <h3>Email</h3>
+                <div class="input-contenedor">
+                    
+                    <input type="text" id="mis_datos_input" value="{{ current_user.email }}">
+                </div>
+                <h3>Actualizar contraseña</h3>
+                <div class="input-contenedor">
+                    <input type="password" id="mis_datos_input" value="" placeholder="Ingresar contraseña actual">
+                </div>
+                <div class="input-contenedor">
+                    <input type="password" id="mis_datos_input" value="" placeholder="Ingresar nueva contraseña">
+                </div>
+                <div class="button-content">
+                    <button>Actualizar información</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</main>
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="{{ url_for('static', filename='codejs/code.js') }}"></script>
+{% endblock %}
+
+

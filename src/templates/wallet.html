@@ -1,0 +1,247 @@
+{% extends './base.html' %}
+
+{% block title %}Wallet{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/wallet.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
+
+{% block body %}
+<div class="menu">
+    <ion-icon name="menu-outline"></ion-icon>
+    <ion-icon name="close-outline"></ion-icon>
+</div>
+
+<div class="barra-lateral">
+    <div>
+        <div class="nombre-pagina">
+            <ion-icon id="cloud" name="person-circle-outline"></ion-icon>
+            <span>{{ current_user.fullname }}</span>
+        </div>
+        <div>
+            <h3 class="username">@{{ current_user.username }}</h3><br>
+        </div>
+    </div>
+
+    <nav class="navegacion">
+        <ul>
+            <li>
+                <a id="home" href="{{ url_for('home') }}">
+                    <ion-icon name="home-outline"></ion-icon>
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li>
+                <a id="wallet" href="#">
+                    <ion-icon name="wallet-outline"></ion-icon>
+                    <span>Billetera</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('votaciones') }}">
+                    <ion-icon name="musical-notes-outline"></ion-icon>
+                    <span>Votaciones</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('enrollments') }}">
+                    <ion-icon name="document-text-outline"></ion-icon>
+                    <span>Inscripciones</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('mis_datos') }}">
+                    <ion-icon name="settings-outline"></ion-icon>
+                    <span>Mis datos</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <ion-icon name="server-outline"></ion-icon>
+                    <span>Historial de Jams</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('logout') }}">
+                    <ion-icon name="log-out-outline"></ion-icon>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div>
+        <div class="linea"></div>
+
+        <div class="modo-oscuro">
+            <a class="info" href="#">
+                <ion-icon name="paper-plane-outline"></ion-icon>
+                <span>Contacto</span>
+            </a>
+        </div>
+
+        <div class="usuario">
+            <img src="{{ url_for('static', filename='images/drepa_jam_logo_guitarra.png') }}" alt="">
+            <div class="info-usuario">
+                <div class="nombre-email">
+                    <img src="{{ url_for('static', filename='images/drepa_jam_logo_letras.png') }}" alt="">
+                </div>
+                <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<main>
+    <div id="background">
+        <video class="fondo-video" autoplay loop muted>
+            <source src="{{ url_for('static', filename='images/drip.mp4') }}" type="video/mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+        <div class="wallet-welcome">
+            <h1>Billetera virtual de la JAM</h1>
+            <p>Felicitaciones! Las primeras 100 personas en registrarse obtienen 50 drepa coins de bienvenida!</p>
+        </div>
+        <div class="store">
+            <div class="wallet-container">
+                <h1>Saldo actual</h1>
+                <div class="coin-container">
+                    <video id="drepacoin" width="30" height="30" autoplay loop muted>
+                        <source src="{{ url_for('static', filename='images/drepacoin1.webm') }}" type="video/webm">
+                    </video>
+                    <p>{{ drepa_coins }} Drepa Coins</p>
+                </div>
+                
+            </div>
+            <h1>Productos disponibles</h1>
+            <div class="store-container">
+                <div class="product-container">
+                    <h1>Lata de Brahma 473ml</h1>
+                    <div class="product">
+                        <img class="product-image" src="{{ url_for('static', filename='images/lata_brahma.png') }}" />
+                        <form action="#">
+                            <p>180 Drepa Coins</p>
+                            {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                            <br>
+                            {% for message in messages %}
+                            <h4 class="message">{{ message }}</h4>
+                            {% endfor %}
+                            {% endif %}
+                            {% endwith %}
+                            <button>Canjear</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="product-container">
+                    <h1>Lata de Schneider 473ml</h1>
+                    <div class="product">
+                        <img class="product-image" src="{{ url_for('static', filename='images/lata_schneider.png') }}" />
+                        <form action="#">
+                            <p>180 Drepa Coins</p>
+                            <button>Canjear</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="product-container">
+                    <h1>Lata de Andes 473ml</h1>
+                    <div class="product">
+                        <img class="product-image" src="{{ url_for('static', filename='images/lata_andes.png') }}" />
+                        <form action="#">
+                            <p>230 Drepa Coins</p>
+                            <button>Canjear</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="product-container">
+                    <h1>Una empanada</h1>
+                    <div class="product">
+                        <img class="product-image" id="empanada-image" src="{{ url_for('static', filename='images/empanada_image.png') }}" />
+                        <form action="#">
+                            <p>230 Drepa Coins</p>
+                            <button>Canjear</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="product-container">
+                    <h1>Tres empanadas</h1>
+                    <div class="product">
+                        <img class="product-image" id="empanadas-image" src="{{ url_for('static', filename='images/empanadas_image.png') }}" />
+                        <form action="#">
+                            <p>230 Drepa Coins</p>
+                            <button>Canjear</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="product-container">
+                    <h1>Pizza Grande</h1>
+                    <div class="product">
+                        <img class="product-image" id="pizza-image" src="{{ url_for('static', filename='images/pizza.png') }}" />
+                        <form action="#">
+                            <p>230 Drepa Coins</p>
+                            <button>Canjear</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="product-container">
+                    <h1>Baquetas de bateria</h1>
+                    <div class="product">
+                        <img class="product-image" id="pizza-image" src="{{ url_for('static', filename='images/baquetas.png') }}" />
+                        <form action="#">
+                            <p>1250 Drepa Coins</p>
+                            <button>Canjear</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="product-container">
+                    <h1>Cable para guitarra 1.5m</h1>
+                    <div class="product">
+                        <img class="product-image" id="pizza-image" src="{{ url_for('static', filename='images/cable_guitarra_1_5.png') }}" />
+                        <form action="#">
+                            <p>2650 Drepa Coins</p>
+                            <button>Canjear</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="product-container">
+                    <h1>Afinador cromatico</h1>
+                    <div class="product">
+                        <img class="product-image" id="pizza-image" src="{{ url_for('static', filename='images/afinador.png') }}" />
+                        <form action="#">
+                            <p>2650 Drepa Coins</p>
+                            <h4>No tiene suficientes</h4>
+                            <h4>Drepa coins</h4>
+                            <button class="flash-button">Canjear</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="product-container">
+                    <h1>Cable para guitarra 3m</h1>
+                    <div class="product">
+                        <img class="product-image" id="pizza-image" src="{{ url_for('static', filename='images/cable_guitarra_1_5.png') }}" />
+                        <form action="#">
+                            <p>3800 Drepa Coins</p>
+                            <button>Canjear</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+
+</main>
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="{{ url_for('static', filename='codejs/code.js') }}"></script>
+{% endblock %}

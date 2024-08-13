@@ -1,0 +1,104 @@
+main .input-content{
+    height: 100px;
+    width: 600px;
+    margin: 30px;
+}
+
+main .title-content{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+main form .title-content h1{
+    color: #ffffff;
+}
+
+main .input-content h3{
+    color: #ffffff;
+}
+
+main form{
+    width: 80%;
+    height: 900px;
+    max-width: 500px;
+    min-width: 300px;
+    padding: 30px;
+    margin: 30px;
+    border: 2px solid rgba(255, 255, 255, .6);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+
+.input-contenedor{
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    margin-left: 5%;
+    width: 90%;
+    border-bottom: 2px solid #fff;
+}
+
+.input-contenedor input{
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: -35px 0 5px;
+    color: #fff;
+}
+
+input::placeholder {
+    color: rgb(192, 192, 192); /* Color del texto del placeholder */
+    font-style: italic; /* Estilo de la fuente del placeholder */
+    opacity: 60%; /* Opacidad del texto del placeholder (1 es completamente visible) */
+}
+
+.arroba{
+    position: absolute;
+    color: #fff;
+    font-size: 1.6rem;
+    top: 19px;
+    left: -17px;
+    height: 15px;
+    width: 15px;
+}
+
+#mis_datos{
+    background-color: var(--color-menu-hover);
+    color: var(--color-menu-hover-texto);
+}
+
+.button-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+/*------------------> Responsive*/
+
+@media (max-width: 600px){
+    .barra-lateral{
+        position: fixed;
+        left: -250px;
+    }
+    .max-barra-lateral{
+        left: 0;
+    }
+    .menu{
+        display: flex;
+    }
+    .menu ion-icon:nth-child(2){
+        display: none;
+    }
+    main{
+        margin-left: 0;
+    }
+    main.min-main{
+        margin-left: 0;
+    }
+    
+}

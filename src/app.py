@@ -184,6 +184,7 @@ def votaciones():
     username = current_user.username
     form_button = "Votar"
     user_voted = Votes.check_user_vote(db,username)
+    ip_adress = request.remote_addr
     if user_voted == True:
         form_button = "Actualizar voto"
         voted_songs = Votes.fetch_user_votes(db,username)
@@ -200,7 +201,7 @@ def votaciones():
 
             for song in voted_songs_post:
                 if song not in voted_songs:
-                    Votes.add_song_vote(db, song, username)
+                    Votes.add_song_vote(db, song, username,ip_adress)
             return redirect(url_for('resultado_votaciones'))
             
             
@@ -209,7 +210,7 @@ def votaciones():
             voted_songs = request.form.to_dict()
             for song, vote in voted_songs.items():
                 if vote == 'on':
-                    Votes.add_song_vote(db,song,username)
+                    Votes.add_song_vote(db,song,username,ip_adress)
             return redirect(url_for('resultado_votaciones'))
                 
         

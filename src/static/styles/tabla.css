@@ -27,6 +27,14 @@ h1{
     color: white;
 }
 
+h2{
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    color: white;
+}
+
+
 .flex-container{
     display: flex;
     flex-direction: row;

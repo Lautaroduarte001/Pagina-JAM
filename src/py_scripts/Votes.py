@@ -67,12 +67,12 @@ class Votes():
             raise Exception(ex)
     
     @classmethod
-    def add_song_vote(self,db,song,username):
+    def add_song_vote(self,db,song,username,ip_adress):
         try:
             cursor = db.connection.cursor()
-            sql = """INSERT INTO votaciones (song,username) VALUES (%s,%s) 
+            sql = """INSERT INTO votaciones (song,username,ip_adress) VALUES (%s,%s,%s) 
             """
-            cursor.execute(sql,(song, username))
+            cursor.execute(sql,(song, username,ip_adress))
             db.connection.commit()
         except Exception as ex:
             raise Exception(ex)

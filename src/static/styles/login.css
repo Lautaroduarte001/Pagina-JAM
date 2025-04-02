@@ -7,7 +7,6 @@
 }
 
 
-
 .logo{
 
     display: block;
@@ -15,7 +14,9 @@
     margin-right: auto;
     width: 50%;
     margin-top: -50px;
-    margin-bottom: 10px;
+    margin-bottom: -20px;
+    width: 150px;
+    height: 150px;
 }
 
 section{
@@ -24,7 +25,7 @@ section{
     align-items: center;
     width: 100%;
     min-height: 100vh;
-    background: url(../images/bg-login.jpg);
+    background: url(../images/bg.png);
     background-size: cover;
     background-color: black;
 }
